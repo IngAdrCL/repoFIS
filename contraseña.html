@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>Formulario Registro</title>
+</head>
+<body>  
+  <section class="form-register">
+      <h4>Recuperar Contraeña</h4>
+      <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su Correo Electrónico">
+
+      <!-- Campo de contraseña con tooltip -->
+      <div class="tooltip">
+          <input class="controls" type="password" name="contraseña" id="contraseña" placeholder="Ingrese su Nueva Contraseña" required>
+          <div class="tooltip-text">
+              La nueva contraseña debe contener:
+              <ul>
+                  <li>Al menos una letra mayúscula.</li>
+                  <li>Al menos un número.</li>
+                  <li>Al menos un carácter especial (!@#$%).</li>
+                  <li>Entre 8 y 20 caracteres.</li>
+              </ul>
+          </div>
+          
+      </div>
+      <div class="tooltip">
+            <input class="controls" type="password" name="confirmar_contraseña" id="confirmar_contraseña" placeholder="Confirmar Contraseña" required>
+            <div class="tooltip-text">
+                Asegúrese de que la contraseña coincida con la anterior.
+            </div>
+        </div>
+      <p>Estoy de acuerdo con <a href="#">Términos y Condiciones</a></p>
+      <form id="miFormulario">
+          <input class="botons" type="submit" value="Registrar">
+      </form>
+      <p><a href="index.html">¿Ya tengo Cuenta?</a></p>
+  </section>
+
+  <script>
+      document.getElementById("miFormulario").addEventListener("submit", function(event) {
+          event.preventDefault(); 
+
+          const contraseña = document.getElementById("contraseña").value;
+
+          // Validación básica para la contraseña
+          const requisitos = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%])[A-Za-z\d!@#$%]{8,20}$/;
+          if (!requisitos.test(contraseña)) {
+              alert("La contraseña no cumple con los requisitos. Por favor, verifique.");
+              return;
+          }
+
+          // Redirige si la validación es exitosa
+          window.location.href = "index.html";
+      });
+  </script>
+</body>
+
+</html>
