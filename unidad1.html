@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 1</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+    
+
+
+</head>
+<body id="body">
+    
+    <header>
+        <div class="icon__menu">
+            <i class="fas fa-bars" id="btn_open"></i>
+        </div>
+    </header>
+
+    <div class="menu__side" id="menu_side">
+
+        <div class="name__page">
+            <i class="fab fa-instagram"></i>
+            <h4>FIS_Equipo 5</h4>
+        </div>
+
+        <div class="options__menu">	
+
+            <a href="prompts.html" class="selected">
+                <div class="option">
+                    <i class="fas fa-home" title="Inicio"></i>
+                    <h4>Inicio</h4>
+                </div>
+            </a>
+
+            <a href="unidad1.html">
+                <div class="option">
+                    <i class="far fa-file" title="Portafolio"></i>
+                    <h4>Prompts Unidad_1</h4>
+                </div>
+            </a>
+            
+            <a href="unidad2.html">
+                <div class="option">
+                    <i class="fas fa-file" title="Prompts"></i>
+                    <h4>Prompts Unidad_2</h4>
+                </div>
+            </a>
+
+            <a href="#">
+                <div class="option">
+                    <i class="far fa-sticky-note" title="Prompts"></i>
+                    <h4>Asignatura FIS</h4>
+                </div>
+            </a>
+
+            <a href="#">
+                <div class="option">
+                    <i class="fas fa-id-badge" title="Contacto"></i>
+                    <h4>Contacto</h4>
+                </div>
+            </a>
+
+            <a href="#">
+                <div class="option">
+                    <i class="far fa-id-badge" title="Nosotros"></i>
+                    <h4>Nosotros</h4>
+                </div>
+            </a>
+
+            <a href="index.html">
+              <div class="option">
+                  <i class="fas fa-address-card" title="Cerrar sesión"></i>
+                  <h4>Cerrar sesión</h4>
+              </div>
+           </a>
+        </div>
+
+    </div>
+
+    <main data-aos="fade-up">
+        <h1 class="blueviolet">
+            Prompts redactados de manera correcta para usar con ChatGPT
+        </h1>
+    
+        <!-- Nueva sección para la funcionalidad -->
+        <div class="prompt-simulator">
+            <!-- Selector y botón -->
+            <div class="selector">
+                <label for="questions">Selecciona un prompt predefinido:</label>
+                <select id="questions">
+                    <option value="">-- Selecciona una opción --</option>
+                    <option value="1">Proceso de software en ingeniería</option>
+                    <option value="2">¿Qué es el software?</option>
+                    <option value="3">Herramientas</option>
+                    <option value="4">Procesos</option>
+                    <option value="5">Métodos</option>
+                    <option value="6">¿Qué es ingeniería de software?</option>
+                    <option value="7">Módelos de ingenieria de software</option>
+                    <option value="8">Roles en ingenieria de software</option>
+                    <option value="9">Ingeniería de software como producto</option>
+                    
+                </select>
+                <button id="sendButton">Enviar</button>
+            </div>
+    
+            <!-- Caja para el prompt seleccionado -->
+            <textarea id="userInput" placeholder="Aquí aparecerá el prompt seleccionado..." readonly></textarea>
+    
+            <!-- Caja para la respuesta -->
+            <div id="response" class="response"></div>
+        </div>
+    </main>
+    
+    
+    
+    
+    
+    
+    
+    
+<script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000,
+        once: true
+    });
+// Preguntas y respuestas predefinidas
+// Prompts y respuestas predefinidas con título corto y texto completo
+// Respuestas predefinidas (con título, fullText y response)
+const predefinedPrompts = {
+    "1": {
+        title: "Proceso de software en ingeniería",
+        fullText: "Explica qué es un proceso de software en ingeniería de software, incluyendo: definición, actividades fundamentales (con breve descripción), elementos de las descripciones (productos, roles, condiciones), diferencias entre procesos planificados y ágiles (contextos adecuados), cómo mejorar procesos (ejemplos y mejores prácticas), y por qué no hay un proceso 'ideal'.",
+        response: `Un proceso de software es un conjunto estructurado de actividades y prácticas que se llevan a cabo para desarrollar, operar y mantener sistemas de software. Es el marco que guía a los equipos de desarrollo para cumplir con los requisitos de calidad, tiempo y costo de un proyecto.
+
+Actividades fundamentales en cualquier proceso de software:
+- **Especificación**: Definir y documentar lo que debe hacer el sistema. Incluye actividades como:
+  - **Elicitación de requisitos**: Identificar las necesidades de los usuarios.
+  - **Análisis de requisitos**: Transformar las necesidades en especificaciones claras.
+  - **Documentación**: Crear artefactos como el Documento de Requisitos de Software (SRS).
+  - **Diseño e implementación**: Traducir los requisitos en una arquitectura de software y luego construir el sistema.
+
+- **Diseño del sistema**: Crear la estructura, componentes y relaciones del software.
+- **Codificación**: Implementar el diseño usando lenguajes de programación.
+- **Validación y verificación**: Asegurarse de que el software cumple con los requisitos y funciona correctamente.
+  - Pruebas unitarias, de integración y de sistema.
+  - Revisiones y auditorías.
+- **Evolución**: Modificar el software para adaptarse a nuevos requisitos o corregir errores.
+  - Mantenimiento correctivo, adaptativo, perfectivo y preventivo.
+
+**Elementos en las descripciones de procesos:**
+- **Productos**: Son los entregables que se generan, como diagramas de diseño, código fuente, y manuales de usuario.
+- **Roles**: Describen quién realiza qué actividad, como desarrolladores, analistas de sistemas, probadores, etc.
+- **Condiciones previas y posteriores**:
+  - **Condiciones previas**: Recursos o etapas que deben completarse antes de comenzar una actividad.
+  - **Condiciones posteriores**: Resultados esperados al completar una actividad.
+
+**Cómo mejorar los procesos de software:**
+- **Estandarización**: Crear plantillas y prácticas comunes para asegurar consistencia.
+  - Ejemplo: Uso de normas como ISO/IEC 12207 para procesos de ciclo de vida del software.
+- **Adopción de mejores prácticas**:
+  - Implementar metodologías probadas como Scrum, DevOps o CMMI.
+  - Integrar herramientas para automatizar tareas repetitivas, como CI/CD.
+- **Capacitación y aprendizaje continuo**:
+  - Entrenar al personal en nuevas tecnologías y métodos.
+  - Fomentar una cultura de aprendizaje en la organización.
+- **Revisión y mejora continua**:
+  - Realizar análisis retrospectivos al final de cada proyecto.
+  - Aplicar principios de mejora continua como el ciclo PDCA (Plan-Do-Check-Act).
+
+**Por qué no existe un proceso de software "ideal":**
+El "proceso ideal" no existe porque las necesidades, recursos y restricciones varían ampliamente entre organizaciones y proyectos. Factores como el tipo de software, la experiencia del equipo, las restricciones de tiempo y presupuesto, y el contexto de negocio influyen en la elección del proceso.
+
+Ejemplo:
+- Un proyecto de software crítico necesita un enfoque planificado para garantizar seguridad y cumplimiento regulatorio.
+- Un prototipo rápido para validar una idea en el mercado requiere un enfoque ágil y adaptable.
+
+**Conclusión:** La clave está en adaptar el proceso a las circunstancias del proyecto, tomando lo mejor de distintas metodologías y aprendiendo de la experiencia.`
+    },
+    "2": {
+        title: "¿Qué es el software?",
+        fullText: "¿Qué es el software? Proporciona una definición que incluya que está compuesto por programas informáticos y documentación asociada. Explica además los dos enfoques principales para su desarrollo: software creado a medida para satisfacer necesidades específicas de un cliente y software desarrollado para un mercado general, incluyendo ejemplos claros para cada caso.",
+        response: `El software es el conjunto de programas informáticos, procedimientos y documentación asociada que permiten a los usuarios interactuar con un sistema informático y ejecutar diversas tareas. El software incluye tanto las aplicaciones que los usuarios utilizan, como los sistemas operativos que gestionan el hardware de la computadora. Además de los programas, el software abarca la documentación que explica su funcionamiento, guías de usuario, manuales técnicos y otros materiales de soporte.
+
+El desarrollo de software puede adoptar dos enfoques principales:
+
+- **Software a medida**: Este tipo de software se desarrolla específicamente para satisfacer las necesidades particulares de un cliente o empresa. El software es diseñado y creado teniendo en cuenta los requisitos únicos del usuario, y suele ser más costoso y más personalizado. Un ejemplo claro de este enfoque es un sistema de gestión empresarial (ERP) desarrollado para una empresa específica, donde se crean funcionalidades personalizadas para adaptarse a sus procesos y operaciones únicas.
+
+- **Software para un mercado general**: En este caso, el software se desarrolla con el objetivo de ser utilizado por una amplia variedad de usuarios o empresas, sin personalización específica para ningún cliente en particular. El software se distribuye masivamente y está diseñado para resolver problemas comunes. Ejemplos de este enfoque incluyen aplicaciones como Microsoft Office o el sistema operativo Windows, que están diseñados para ser utilizados por un amplio rango de personas o empresas, independientemente de sus necesidades específicas.
+
+**En resumen**, el software a medida se adapta a requisitos específicos, mientras que el software para el mercado general busca ofrecer soluciones más amplias y accesibles para muchos usuarios.`
+    },
+    "3": {
+    title: "Herramientas",
+    fullText: "Explícame qué son las herramientas de desarrollo de software, también conocidas como herramientas CASE, y cómo apoyan las actividades del proceso de ingeniería de software. Incluye ejemplos de herramientas como editores de diseño, compiladores, depuradores, etc., y describe algunas actividades que pueden ser automatizadas, como la generación de código, la creación de interfaces de usuario y la depuración de programas. Además, menciona cómo las herramientas pueden combinarse dentro de un marco llamado Entorno de Desarrollo Interactivo (IDE) y da el ejemplo del IDE ECLIPSE.",
+    response: "Las herramientas de desarrollo de software, también conocidas como herramientas CASE (Computer-Aided Software Engineering), son aplicaciones o entornos que facilitan las tareas involucradas en el desarrollo y mantenimiento de software. Estas herramientas automatizan, apoyan o mejoran diversas actividades dentro del proceso de ingeniería de software, mejorando la productividad, la calidad y la eficiencia del desarrollo.\n\nLas herramientas CASE incluyen una amplia variedad de aplicaciones, como:\n\n- **Editores de diseño**: Herramientas que permiten crear diagramas de flujo, diagramas UML, diagramas de arquitectura y otros modelos visuales del sistema. Ejemplo: **Enterprise Architect**.\n- **Compiladores**: Herramientas que traducen el código fuente escrito en un lenguaje de programación a código de máquina que puede ser ejecutado por una computadora. Ejemplo: **GCC (GNU Compiler Collection)**.\n- **Depuradores**: Herramientas que permiten identificar y corregir errores en el código mediante la inspección y control de la ejecución del programa. Ejemplo: **GDB (GNU Debugger)**.\n\nAdemás de estas herramientas, existen actividades del proceso de ingeniería de software que pueden ser automatizadas mediante herramientas CASE, como:\n\n- **Generación de código**: Muchas herramientas pueden generar código automáticamente a partir de modelos de alto nivel, como diagramas UML. Esto ayuda a ahorrar tiempo y reduce los errores humanos en la codificación.\n- **Creación de interfaces de usuario**: Herramientas como **Qt Designer** o **Visual Studio** permiten diseñar interfaces gráficas de usuario de manera visual, lo que facilita el desarrollo de aplicaciones con interfaces complejas.\n- **Depuración de programas**: Los depuradores permiten realizar una ejecución paso a paso de un programa, observando el estado de las variables y el flujo del código, lo cual facilita encontrar errores lógicos o de ejecución.\n\nLas herramientas CASE también pueden integrarse dentro de un **Entorno de Desarrollo Interactivo (IDE)**, que es un conjunto de herramientas que proporcionan un entorno unificado para el desarrollo de software. Un IDE puede incluir editores de texto, compiladores, depuradores, y otras herramientas necesarias para el desarrollo. Ejemplo de un IDE muy popular es **Eclipse**, que es ampliamente utilizado para desarrollar software en lenguajes como Java, C++, y Python. Eclipse integra herramientas de edición, compilación y depuración en una única plataforma, lo que facilita el trabajo del desarrollador."
+
+    },
+    "4": {
+    title: "Procesos",
+    fullText: "Explica cómo los procesos de desarrollo de software han evolucionado para adaptarse a las capacidades de las personas en una organización y las características específicas de los sistemas que se están desarrollando. Menciona la diferencia entre procesos estructurados, necesarios para sistemas críticos, y procesos más flexibles, que son más efectivos para sistemas empresariales con requisitos cambiantes. Además, describe la categorización de los procesos de software en procesos planificados y ágiles, y explica cómo los procesos planificados incluyen actividades que se planifican con antelación y se miden contra un plan. Finalmente, comenta sobre la posibilidad de mejorar los procesos de software en las organizaciones y cómo muchas aún no aprovechan los métodos de ingeniería de software.",
+    response: "Los procesos de desarrollo de software han evolucionado significativamente a lo largo del tiempo, adaptándose a las capacidades de las personas en una organización y a las características específicas de los sistemas que se están desarrollando. En los primeros tiempos del desarrollo de software, los procesos eran muy rígidos y estructurados, pero con el tiempo se han flexibilizado para dar lugar a enfoques más adaptativos.\n\n**Procesos estructurados vs. procesos flexibles:**\n- **Procesos estructurados**: Estos son procesos bien definidos y planificados, adecuados para sistemas críticos donde la seguridad, la fiabilidad y la precisión son fundamentales, como en el desarrollo de software para sistemas bancarios, aeroespaciales o de salud. Estos procesos incluyen una planificación detallada, una documentación extensa y un control estricto sobre cada etapa del desarrollo.\n- **Procesos flexibles**: Son más adecuados para sistemas empresariales con requisitos cambiantes, como aplicaciones móviles o software de gestión empresarial. Estos procesos permiten ajustes rápidos y iteraciones frecuentes, adaptándose a los cambios en los requisitos del cliente o en el mercado sin comprometer demasiado el progreso del proyecto.\n\n**Procesos planificados y ágiles:**\nLos procesos de software se pueden clasificar en dos grandes categorías:\n\n- **Procesos planificados**: En estos procesos, todas las actividades se planifican con antelación y se miden contra un plan establecido. Es necesario que se sigan de manera rigurosa y que se realicen revisiones periódicas para asegurar que el proyecto sigue el curso adecuado. Un ejemplo de este enfoque es el modelo en cascada (Waterfall), en el cual cada fase del desarrollo debe completarse antes de pasar a la siguiente.\n\n- **Procesos ágiles**: En contraste, los procesos ágiles son más flexibles y permiten iteraciones rápidas, lo que facilita adaptarse a los cambios en los requisitos o en las condiciones del proyecto. Ejemplos de estos enfoques incluyen Scrum y Kanban, que promueven entregas incrementales y colaboración continua entre los miembros del equipo y los clientes.\n\n**Mejora continua de procesos:**\nUna de las áreas clave en la gestión de procesos de software es la mejora continua. Las organizaciones que aplican métodos de ingeniería de software exitosos se esfuerzan por evaluar y optimizar sus procesos de manera constante, buscando formas de aumentar la eficiencia, reducir costos y mejorar la calidad del producto final. Sin embargo, muchas organizaciones aún no aprovechan completamente los métodos avanzados de ingeniería de software, como la integración continua (CI), el control de versiones, la automatización de pruebas y otras herramientas que facilitan la mejora continua. Adoptar estas metodologías puede transformar significativamente la calidad y efectividad de los procesos de desarrollo de software en una organización."
+},
+
+    "5": {
+    title: "Métodos",
+    fullText: "Explica qué es un método en ingeniería de software, destacando cómo se utiliza para guiar el proceso de desarrollo del software y cuáles son las principales características que lo definen. Incluye ejemplos de métodos comunes y cómo ayudan a estructurar las actividades de desarrollo.",
+    response: "En ingeniería de software, un **método** es un enfoque sistemático y estructurado utilizado para guiar el proceso de desarrollo del software, ayudando a las organizaciones y equipos de trabajo a gestionar las actividades, recursos y tareas necesarias para crear un sistema de software de manera eficiente y efectiva.\n\n**Características de un método:**\n1. **Enfoque estructurado**: Un método establece una serie de pasos o fases que deben seguirse en un orden determinado, proporcionando una guía clara para el proceso de desarrollo.\n2. **Definición de actividades**: Los métodos describen las actividades específicas que deben realizarse en cada fase del desarrollo del software, como análisis, diseño, codificación, pruebas y mantenimiento.\n3. **Documentación**: Los métodos suelen incluir plantillas, artefactos y documentación que ayudan a los equipos a organizar y registrar el progreso del desarrollo del software.\n4. **Control de calidad**: Un buen método incluye medidas y técnicas para controlar y asegurar la calidad del software en cada etapa del desarrollo, como la validación de requisitos o la revisión de código.\n\n**Ejemplos de métodos comunes en ingeniería de software:**\n1. **Modelo en cascada**: Este es uno de los métodos más antiguos y más estructurados en el desarrollo de software. Consiste en una secuencia lineal de fases, donde cada fase debe completarse antes de pasar a la siguiente. Es ideal para proyectos en los que los requisitos son bien comprendidos y no cambian durante el proceso de desarrollo.\n\n2. **Método ágil (Agile)**: Agile es un enfoque iterativo y flexible para el desarrollo de software, que se centra en entregas rápidas y continuas, adaptándose a cambios en los requisitos. Métodos ágiles como **Scrum** y **Kanban** se utilizan ampliamente en equipos de desarrollo de software modernos, especialmente cuando los requisitos no son completamente conocidos al principio del proyecto o cuando se espera que cambien durante el desarrollo.\n\n3. **Desarrollo rápido de aplicaciones (RAD)**: RAD es un enfoque que enfatiza la creación rápida de prototipos y el desarrollo incremental. Es útil cuando se necesitan soluciones rápidas y cuando los requisitos son vagos o están sujetos a cambios frecuentes.\n\n**Cómo los métodos ayudan a estructurar las actividades de desarrollo:**\nCada método proporciona una estructura que ayuda a organizar y asignar tareas dentro del proceso de desarrollo, asegurando que los equipos trabajen de manera coherente y eficiente. Por ejemplo, el enfoque **ágil** fomenta la colaboración continua entre los desarrolladores y los clientes, permitiendo entregas incrementales de funcionalidad, mientras que el **modelo en cascada** asegura que cada fase del proyecto se complete antes de pasar a la siguiente, proporcionando un enfoque más predecible para proyectos con requisitos estables."
+},
+
+    "6": {
+    title: "¿Qué es ingeniería de software?",
+    fullText: "Proporciona un análisis detallado y completo sobre los fundamentos de la ingeniería de software, incluyendo sus métodos, modelos, procesos clave, principios básicos y buenas prácticas. Incluye explicaciones sobre cómo se aplican en proyectos reales, sus ventajas, desafíos y ejemplos prácticos de implementación.",
+    response: "La **ingeniería de software** es una disciplina de la ingeniería que se enfoca en la creación, desarrollo, implementación y mantenimiento de sistemas de software de alta calidad, asegurando que sean funcionales, escalables, eficientes y fáciles de mantener. Su objetivo es aplicar principios de ingeniería y métodos sistemáticos para producir software confiable y económico.\n\n### **Fundamentos de la ingeniería de software**\n\nLa ingeniería de software abarca varios **principios clave**, que incluyen la necesidad de planificar y gestionar el ciclo de vida del software, identificar y mitigar riesgos, garantizar la calidad, y asegurar que el software cumpla con los requisitos del cliente o usuario final.\n\n### **Métodos y modelos en ingeniería de software**\n\n1. **Métodos**: Los métodos guían el proceso de desarrollo del software. Algunos ejemplos incluyen el **modelo en cascada**, el **modelo ágil**, y el **enfoque RAD (Desarrollo rápido de aplicaciones)**. Cada uno de estos métodos tiene un enfoque distinto dependiendo de los requisitos del proyecto.\n\n2. **Modelos de desarrollo**: Los modelos en ingeniería de software son representaciones de cómo debe organizarse el proceso de desarrollo. El **modelo en cascada** es un enfoque secuencial en el que cada fase del desarrollo debe completarse antes de comenzar con la siguiente. En contraste, el **modelo ágil** es un enfoque iterativo que permite la flexibilidad de adaptarse a los cambios de requisitos a lo largo del ciclo de vida del proyecto.\n\n### **Procesos clave en ingeniería de software**\n\nLos procesos son las actividades y tareas que deben ejecutarse durante el ciclo de vida del software. Esto incluye la **planificación**, **diseño**, **codificación**, **pruebas**, y **mantenimiento**. Los procesos de software también se pueden categorizar en **planificados** y **ágiles**, dependiendo de si se requiere una estructura rigurosa o flexibilidad para adaptarse a cambios.\n\n### **Principios básicos**\n\nLos principios fundamentales de la ingeniería de software incluyen:\n\n- **Enfoque sistemático**: Se debe seguir un conjunto de prácticas y métodos bien definidos para desarrollar el software.\n- **Mantenimiento y adaptación**: El software no es estático, por lo que es necesario realizar ajustes y actualizaciones periódicas.\n- **Calidad y fiabilidad**: El software debe cumplir con los estándares de calidad, ser confiable y fácil de mantener a lo largo del tiempo.\n\n### **Buenas prácticas**\n\nLas buenas prácticas son enfoques recomendados que ayudan a garantizar el éxito de los proyectos de software, tales como:\n\n- **Gestión de requisitos**: Asegurarse de que los requisitos del software estén bien definidos y gestionados a lo largo del proyecto.\n- **Control de versiones**: Utilizar herramientas de control de versiones como Git para gestionar los cambios en el código y facilitar el trabajo colaborativo.\n- **Pruebas continuas**: Realizar pruebas a lo largo del ciclo de vida del software para detectar y corregir errores lo antes posible.\n\n### **Aplicación en proyectos reales**\n\nEn proyectos reales, la ingeniería de software se aplica para desarrollar aplicaciones que van desde pequeñas herramientas hasta grandes sistemas empresariales. Por ejemplo, en el desarrollo de aplicaciones móviles, el proceso de ingeniería de software ayuda a garantizar que la aplicación sea funcional, eficiente y capaz de adaptarse a diferentes dispositivos y versiones del sistema operativo.\n\n### **Ventajas y desafíos**\n\nLas ventajas de aplicar ingeniería de software incluyen una mayor eficiencia, mejor calidad del producto, y menor probabilidad de fallos. Sin embargo, también presenta desafíos, como la dificultad de gestionar los requisitos cambiantes, mantener la comunicación efectiva entre los equipos, y asegurar la calidad continua del software a lo largo del ciclo de vida del proyecto.\n\n### **Ejemplos prácticos de implementación**\n\n1. **Desarrollo de software a medida**: Empresas que necesitan soluciones específicas desarrollan software a medida utilizando prácticas de ingeniería de software para asegurarse de que se cumplan todos los requisitos del cliente.\n2. **Desarrollo ágil en startups**: En entornos de startups, donde los requisitos pueden cambiar rápidamente, los equipos pueden aplicar principios ágiles para iterar rápidamente sobre versiones de un producto, ajustando características basadas en la retroalimentación de los usuarios."
+},
+
+    "7": {
+    title: "Modelos de ingeniería de software",
+    fullText: "Elabora un análisis completo sobre los modelos de ingeniería de software, detallando sus características principales, ventajas, desventajas y los contextos ideales para su aplicación. Incluye ejemplos de uso práctico que ilustren su implementación en proyectos de desarrollo de software.",
+    response: "Los **modelos de ingeniería de software** son enfoques estructurados que guían el proceso de desarrollo del software, proporcionando un marco para organizar y gestionar las distintas actividades a lo largo del ciclo de vida del proyecto. Estos modelos ayudan a definir las fases, los entregables y las actividades de cada etapa, además de establecer la secuencia y las interacciones entre ellas.\n\n### **Modelos de ingeniería de software más comunes**\n\n1. **Modelo en Cascada**: El **modelo en cascada** es uno de los enfoques más antiguos y conocidos en ingeniería de software. En este modelo, el desarrollo se realiza de forma secuencial, siguiendo una serie de fases que incluyen el análisis de requisitos, diseño, implementación, pruebas, despliegue y mantenimiento. Las fases no se solapan, y cada una debe completarse antes de comenzar la siguiente.\n\n   - **Ventajas**: Es fácil de entender y aplicar, ideal para proyectos con requisitos claramente definidos y poco cambiantes. También facilita la documentación en cada etapa del desarrollo.\n   - **Desventajas**: No es flexible ante cambios de requisitos, y puede resultar ineficaz en proyectos grandes o complejos donde los requisitos pueden evolucionar durante el desarrollo.\n   - **Contexto ideal**: Proyectos con requisitos estables, como sistemas embebidos o proyectos gubernamentales.\n   - **Ejemplo práctico**: Desarrollo de software para dispositivos de control industrial donde los requisitos son bien definidos y no cambiarán a lo largo del ciclo de vida del proyecto.\n\n2. **Modelo en V**: El **modelo en V** es una extensión del modelo en cascada, donde cada fase de desarrollo está vinculada a una fase de pruebas correspondiente. En este modelo, después de la fase de diseño, se realiza la planificación de pruebas, y las pruebas se llevan a cabo de manera continua a medida que se avanza en el proyecto.\n\n   - **Ventajas**: Mejora la calidad del software al integrar las pruebas desde el inicio del desarrollo. Permite detectar errores más temprano en el ciclo de vida del proyecto.\n   - **Desventajas**: Al igual que el modelo en cascada, es inflexible ante cambios de requisitos y puede ser costoso si no se planifican adecuadamente las pruebas.\n   - **Contexto ideal**: Proyectos con requisitos estables y críticos, como sistemas de software para aplicaciones médicas o aeroespaciales.\n   - **Ejemplo práctico**: Desarrollo de software para equipos médicos, donde la precisión y la fiabilidad del software son esenciales y deben ser validadas en cada etapa.\n\n3. **Modelo Iterativo e Incremental**: En el **modelo iterativo e incremental**, el desarrollo se realiza en ciclos (iteraciones), donde cada ciclo produce una versión funcional del software que se puede probar y mejorar. A lo largo de varias iteraciones, se va agregando funcionalidad y refinando el software hasta que se cumple con los requisitos del cliente.\n\n   - **Ventajas**: Permite mayor flexibilidad ante cambios y mejora continua del producto. Los usuarios pueden probar versiones tempranas y proporcionar retroalimentación.\n   - **Desventajas**: Puede ser difícil gestionar el alcance y el presupuesto si no se controla adecuadamente el número de iteraciones. También puede requerir más tiempo y recursos que otros modelos.\n   - **Contexto ideal**: Proyectos con requisitos cambiantes o cuando se necesita entregar un producto funcional en fases.\n   - **Ejemplo práctico**: Desarrollo de una aplicación móvil que evoluciona a lo largo del tiempo, lanzando nuevas características en cada iteración basado en la retroalimentación de los usuarios.\n\n4. **Modelo Ágil**: El **modelo ágil** es un enfoque flexible y colaborativo que se enfoca en entregar software funcional en períodos cortos (sprints) y adaptarse rápidamente a cambios de requisitos. El desarrollo ágil se basa en principios como la comunicación constante con el cliente, la entrega continua de software funcional y la mejora constante del proceso.\n\n   - **Ventajas**: Permite adaptarse rápidamente a cambios de requisitos y entrega frecuente de software funcional. Fomenta la colaboración entre equipos multidisciplinarios y clientes.\n   - **Desventajas**: Puede ser difícil de aplicar en proyectos grandes o en equipos dispersos geográficamente. Requiere una comunicación constante y una gestión efectiva del proyecto.\n   - **Contexto ideal**: Proyectos donde los requisitos cambian rápidamente y se necesita flexibilidad, como el desarrollo de aplicaciones web y móviles.\n   - **Ejemplo práctico**: Desarrollo de plataformas de comercio electrónico donde las necesidades del cliente pueden cambiar rápidamente en respuesta a nuevas tendencias del mercado.\n\n### **Conclusión**\n\nLa elección del modelo adecuado depende del tipo de proyecto, los requisitos, el presupuesto y el tiempo disponible. Cada modelo tiene sus características particulares, ventajas y desventajas, y es importante elegir el que mejor se ajuste a las necesidades del proyecto. La clave del éxito en ingeniería de software es aplicar el modelo que ofrezca la mayor eficiencia y calidad para el tipo de sistema que se está desarrollando."
+},
+    "8": {
+    title: "Roles en ingeniería de software",
+    fullText: "Elabora un análisis detallado sobre los roles en la ingeniería de software, describiendo las responsabilidades principales de cada uno, las habilidades necesarias, su relación dentro de un equipo de desarrollo, y ejemplos prácticos de cómo contribuyen al éxito de un proyecto. Asegúrate de incluir una visión integral que abarque roles técnicos, de gestión y de apoyo.",
+    response: "En la ingeniería de software, existen diversos roles que son esenciales para el éxito de un proyecto. Cada uno de estos roles tiene responsabilidades específicas, habilidades necesarias y contribuye de manera única al proceso de desarrollo del software. Estos roles se dividen en tres grandes categorías: técnicos, de gestión y de apoyo.\n\n### **Roles técnicos**\n\n1. **Desarrollador de software**\n   - **Responsabilidades**: Los desarrolladores son los encargados de escribir el código del software, implementando las funcionalidades de acuerdo con los requisitos del proyecto. Son responsables de la implementación de las soluciones de software y de la optimización del rendimiento.\n   - **Habilidades necesarias**: Conocimientos de lenguajes de programación, herramientas de desarrollo, metodologías ágiles, y habilidades en depuración y pruebas.\n   - **Contribución al proyecto**: Los desarrolladores son los pilares del equipo técnico. Sin su capacidad para traducir los requisitos del software en código funcional, el proyecto no avanzaría.\n   - **Ejemplo práctico**: Un desarrollador trabajando en una aplicación móvil escribe el código para implementar una nueva característica, como el inicio de sesión con redes sociales.\n\n2. **Arquitecto de software**\n   - **Responsabilidades**: El arquitecto de software diseña la estructura general del sistema, definiendo los componentes principales, cómo interactúan entre sí y asegurando que la solución sea escalable, mantenible y robusta.\n   - **Habilidades necesarias**: Conocimientos avanzados de diseño de software, patrones de arquitectura, experiencia en desarrollo y una buena comprensión de las tecnologías emergentes.\n   - **Contribución al proyecto**: Asegura que el software tenga una estructura sólida y pueda evolucionar con el tiempo sin perder rendimiento ni fiabilidad.\n   - **Ejemplo práctico**: El arquitecto de software decide usar una arquitectura basada en microservicios para asegurar que la aplicación sea escalable y fácil de actualizar.\n\n3. **Ingeniero de pruebas (QA)**\n   - **Responsabilidades**: El ingeniero de pruebas se encarga de verificar que el software funcione correctamente y cumpla con los requisitos establecidos. Realiza pruebas manuales y automáticas para identificar defectos y asegurar la calidad del producto.\n   - **Habilidades necesarias**: Conocimiento de técnicas de prueba, herramientas de automatización, habilidades analíticas y atención al detalle.\n   - **Contribución al proyecto**: El ingeniero de pruebas asegura que el software sea confiable, libre de errores y cumpla con las expectativas del cliente.\n   - **Ejemplo práctico**: El ingeniero de pruebas desarrolla scripts de pruebas automáticas para verificar que la funcionalidad de inicio de sesión funcione correctamente en diferentes navegadores.\n\n### **Roles de gestión**\n\n1. **Gerente de proyecto**\n   - **Responsabilidades**: El gerente de proyecto coordina todas las actividades del equipo de desarrollo, estableciendo plazos, gestionando recursos y asegurando que el proyecto se mantenga dentro del presupuesto y los plazos establecidos.\n   - **Habilidades necesarias**: Habilidades de liderazgo, gestión de equipos, gestión de tiempo, toma de decisiones, y comprensión de las metodologías de desarrollo de software.\n   - **Contribución al proyecto**: El gerente de proyecto es crucial para mantener el equipo enfocado y garantizar que se entreguen los resultados esperados a tiempo y dentro del presupuesto.\n   - **Ejemplo práctico**: El gerente de proyecto organiza reuniones diarias con el equipo de desarrollo para revisar el progreso y resolver problemas que puedan estar retrasando el proyecto.\n\n2. **Product Owner**\n   - **Responsabilidades**: El Product Owner es responsable de definir las características y prioridades del producto, asegurando que el desarrollo cumpla con las expectativas del cliente. Trabaja estrechamente con el equipo para guiar el desarrollo del producto.\n   - **Habilidades necesarias**: Conocimiento del mercado y de los clientes, habilidades de comunicación y negociación, y capacidad para priorizar tareas según el valor del negocio.\n   - **Contribución al proyecto**: El Product Owner asegura que el equipo de desarrollo esté alineado con los objetivos del negocio y las necesidades de los usuarios.\n   - **Ejemplo práctico**: El Product Owner establece las prioridades para las próximas iteraciones de un producto de comercio electrónico basándose en la retroalimentación de los clientes.\n\n### **Roles de apoyo**\n\n1. **Analista de requisitos**\n   - **Responsabilidades**: El analista de requisitos se encarga de trabajar con los stakeholders para recoger, analizar y documentar los requisitos del software. Debe asegurarse de que todos los requisitos sean entendidos y bien definidos.\n   - **Habilidades necesarias**: Buenas habilidades de comunicación, análisis y resolución de problemas, y experiencia en técnicas de recopilación de requisitos.\n   - **Contribución al proyecto**: El analista de requisitos proporciona la base sobre la cual se construye todo el desarrollo del software. Ayuda a que el equipo de desarrollo entienda lo que se necesita construir.\n   - **Ejemplo práctico**: El analista de requisitos realiza entrevistas con los usuarios finales para determinar las características clave de una nueva plataforma de gestión de proyectos.\n\n2. **Documentalista técnico**\n   - **Responsabilidades**: El documentalista técnico es responsable de crear y mantener toda la documentación del proyecto, incluyendo manuales de usuario, guías de instalación, documentación del código y otras explicaciones técnicas.\n   - **Habilidades necesarias**: Habilidades de redacción técnica, comprensión de los aspectos técnicos del software y atención al detalle.\n   - **Contribución al proyecto**: El documentalista asegura que todos los miembros del equipo, así como los usuarios, puedan acceder a la información necesaria para usar, mantener o mejorar el software.\n   - **Ejemplo práctico**: El documentalista técnico redacta un manual de usuario para una aplicación de gestión empresarial, asegurando que los usuarios puedan entender cómo utilizar las distintas funcionalidades.\n\n### **Conclusión**\n\nLos roles en la ingeniería de software son fundamentales para garantizar el éxito de un proyecto. Cada miembro del equipo, desde los desarrolladores hasta los gerentes de proyecto, desempeña una función clave. La colaboración efectiva entre los roles técnicos, de gestión y de apoyo asegura que el software se desarrolle de manera eficiente y cumpla con los requisitos y expectativas del cliente."
+}
+,
+    "9": {
+    title: "Ingeniería de software como producto",
+    fullText: "Proporciona un análisis detallado sobre la ingeniería de software como producto. Describe sus características principales, tipos de productos que se desarrollan, los factores que influyen en su calidad, y ejemplos prácticos de aplicaciones reales. Explica también cómo estos productos son diseñados, implementados y mantenidos para satisfacer las necesidades del usuario final.",
+    response: "La ingeniería de software como producto se refiere al proceso de desarrollo, implementación y mantenimiento de software con el objetivo de satisfacer las necesidades de los usuarios finales. Este enfoque considera al software como un producto que debe cumplir con ciertos estándares de calidad y estar alineado con los requisitos específicos del cliente o del mercado. A continuación, se detallan los aspectos más importantes relacionados con la ingeniería de software como producto.\n\n### **Características principales de la ingeniería de software como producto**\n\n1. **Enfoque centrado en el usuario**: El software debe estar diseñado para resolver problemas específicos de los usuarios finales, por lo que la experiencia del usuario (UX) y la usabilidad son fundamentales en el proceso de desarrollo.\n\n2. **Ciclo de vida completo**: Desde la concepción del producto hasta su retiro o reemplazo, la ingeniería de software como producto abarca todas las fases del ciclo de vida del software, incluyendo el diseño, desarrollo, pruebas, implementación y mantenimiento.\n\n3. **Iteración y mejora continua**: Los productos de software suelen ser iterativos, es decir, se desarrollan en ciclos o versiones que se mejoran constantemente en función del feedback de los usuarios y los avances tecnológicos.\n\n4. **Escalabilidad y rendimiento**: El software debe ser capaz de escalar adecuadamente para manejar una mayor carga de usuarios o transacciones sin perder rendimiento. Esto es esencial para productos que deben ser utilizados por grandes audiencias o en entornos empresariales de gran tamaño.\n\n5. **Mantenibilidad y soporte**: Los productos de software deben ser fácilmente mantenibles para corregir errores, actualizar funcionalidades o adaptarse a nuevas tecnologías o requisitos del mercado.\n\n### **Tipos de productos de software**\n\n1. **Software de aplicaciones**: Son programas diseñados para realizar tareas específicas para el usuario, como procesadores de texto, hojas de cálculo, aplicaciones móviles, entre otros.\n   - **Ejemplo práctico**: Microsoft Word, Google Docs.\n\n2. **Software de sistemas**: Este tipo de software gestiona el hardware del sistema y proporciona plataformas para ejecutar aplicaciones. Un buen ejemplo son los sistemas operativos y los controladores de hardware.\n   - **Ejemplo práctico**: Microsoft Windows, Linux.\n\n3. **Software embebido**: Software diseñado para controlar dispositivos específicos y hacerlos funcionar de manera eficiente. Se encuentra comúnmente en dispositivos electrónicos, automóviles, electrodomésticos, etc.\n   - **Ejemplo práctico**: El software que controla las funciones de un teléfono móvil, sistemas de navegación en automóviles.\n\n4. **Software empresarial**: Programas diseñados para satisfacer las necesidades de organizaciones y empresas, incluyendo sistemas de gestión empresarial (ERP), aplicaciones de contabilidad, gestión de inventarios, etc.\n   - **Ejemplo práctico**: SAP, Oracle ERP.\n\n5. **Software como servicio (SaaS)**: Este modelo de software permite a los usuarios acceder a aplicaciones a través de Internet, sin necesidad de instalarlas en sus dispositivos locales.\n   - **Ejemplo práctico**: Google Workspace, Salesforce.\n\n### **Factores que influyen en la calidad del software**\n\n1. **Funcionalidad**: El software debe cumplir con los requisitos y especificaciones que fueron definidos durante la fase de planificación y diseño.\n\n2. **Fiabilidad**: El software debe funcionar correctamente durante su uso normal, sin fallos inesperados o comportamientos erráticos.\n\n3. **Usabilidad**: El producto debe ser fácil de aprender y usar, incluso para usuarios sin experiencia técnica.\n\n4. **Eficiencia**: El software debe optimizar el uso de los recursos disponibles, como la memoria y la capacidad de procesamiento, para garantizar un buen rendimiento.\n\n5. **Mantenibilidad**: Debe ser fácil de actualizar, corregir y mejorar el software sin causar problemas a los usuarios existentes.\n\n6. **Portabilidad**: El software debe poder ejecutarse en diferentes plataformas y entornos sin requerir modificaciones significativas.\n\n### **Diseño, implementación y mantenimiento del software**\n\n1. **Diseño**: En esta fase, se identifican los requisitos del software y se crea la arquitectura general del sistema. Se toman decisiones sobre la estructura del código, la selección de herramientas y lenguajes de programación, y se planifica la interfaz de usuario.\n\n2. **Implementación**: El software se desarrolla según el diseño especificado, escribiendo el código fuente y creando los componentes necesarios. Se incluyen pruebas unitarias y la integración de los diferentes módulos para garantizar que el software funcione correctamente.\n\n3. **Mantenimiento**: Después de la implementación, el software se mantiene a lo largo de su ciclo de vida. Esto incluye la corrección de errores, la implementación de nuevas funcionalidades, y la adaptación a cambios en el entorno tecnológico o en los requisitos del mercado.\n\n### **Ejemplos prácticos de aplicaciones reales**\n\n1. **Aplicaciones móviles**: El desarrollo de aplicaciones móviles implica la creación de software específicamente diseñado para teléfonos y tabletas. Un ejemplo popular es WhatsApp, una aplicación de mensajería instantánea que ha evolucionado a lo largo del tiempo para incorporar nuevas características, como llamadas de voz y video.\n\n2. **Plataformas de comercio electrónico**: Amazon es un ejemplo de un producto de software empresarial que ha sido diseñado para manejar miles de transacciones de clientes en tiempo real, garantizando la disponibilidad y escalabilidad del sistema.\n\n3. **Sistemas de gestión empresarial (ERP)**: SAP es un ejemplo de software empresarial utilizado para gestionar los recursos y operaciones de una empresa. Estas plataformas requieren un diseño sólido, una implementación detallada y un mantenimiento continuo para satisfacer las necesidades de los clientes corporativos."
+}
+
+};
+
+
+// Elementos del DOM
+const questionSelector = document.getElementById('questions');
+const userInput = document.getElementById('userInput');
+const responseBox = document.getElementById('response');
+const sendButton = document.getElementById('sendButton');
+
+// Función para simular el efecto de escritura
+function typeWriter(text, element) {
+    let i = 0;
+    element.textContent = ''; // Limpia el contenido anterior
+    const interval = setInterval(() => {
+        if (i < text.length) {
+            element.innerHTML += text[i] === '\n' ? '<br>' : text[i];
+            i++;
+        } else {
+            clearInterval(interval);
+        }
+    }, 10);
+}
+
+// Manejo del evento al hacer clic en "Enviar"
+sendButton.addEventListener('click', () => {
+    const selectedValue = questionSelector.value; // Obtiene el valor seleccionado
+
+    if (selectedValue) {
+        // Llena la caja de texto con el texto del prompt seleccionado
+        userInput.value = predefinedPrompts[selectedValue].fullText;
+
+        // Muestra el texto completo en la caja de respuesta con efecto de escritura
+        const responseText = predefinedPrompts[selectedValue].response;
+        typeWriter(responseText, responseBox);
+    } else {
+        // Muestra un mensaje de error si no se seleccionó un prompt
+        alert("Por favor, selecciona un prompt antes de enviar.");
+    }
+});
+
+</script>
+</body>
+</html>

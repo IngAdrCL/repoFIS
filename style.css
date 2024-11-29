@@ -1,0 +1,552 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    height: 100vh;
+    background: url("images/3607424.jpg") no-repeat #000;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+#particles-js{
+  color: #000;
+}
+.inicio{
+    color: white;
+}
+h2{
+    color: white;
+}
+.hiper{
+    color: white
+}
+.IA{
+    text-align: center;
+   
+}
+.formulario{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: #24303c;
+   
+}
+.formulario h1{
+    text-align: center;
+    padding:  20px 20px 20px 20px;
+    border-bottom: 1px solid silver;
+}
+.formulario form{
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+form .username{
+    position: relative;
+    border-bottom: 2px solid grey;
+    margin: 30px 0;
+    
+}
+/*Usuario*/
+.username input{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    
+    outline: none;
+    color: black;
+}
+
+.username label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: .5s;
+}
+.username span::before{
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #6C3483;
+    transition: 5s;
+}
+
+.username input:focus ~ label,
+.username input:valid ~ label{
+    top: -13px;
+    color: white;
+    transition: top 0.3s ease, color 0.3s ease;
+}
+
+.username input:focus ~ span::before,
+.username input:focus ~ span::before{
+    width: 100%;
+}
+.recordar{
+    margin: -5px 0 20px 5px;
+    color: white;
+    cursor: pointer;
+
+}
+.recordar:hover{
+    text-decoration: underline;
+}
+
+input[type="submit"]{
+    width: 100%;
+    height: 50px;
+    background-color: #1c1c1c;
+    color: #ffffff;
+    border: none;
+    
+    cursor: pointer;
+    outline: none;
+    font-size: 18px;
+}
+input[type="submit"]:hover{
+    border-color: #24303c;
+    transition: .3s;
+}
+
+.registrarse{
+    margin: 30px 0;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+}
+.rergistrarse a{
+    color: blue;
+    text-decoration: none;
+
+}
+.registrarse a:hover{
+    text-decoration: underline;
+}
+
+
+.color{
+    padding-right: 50%;
+    background-color: brown;
+    
+    
+}
+nav{
+    background-color: aqua;
+    padding: 20px;
+    margin-left: 300px;
+    margin-right: 300px;
+    display: flex;
+    justify-content: space-around;
+    background: none;
+    flex-direction: column;
+    text-align: center;
+}
+
+.enlace{
+    background-color: black;
+    color: aqua;
+    padding: 10px 30px;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 25px;
+    margin: 5px 5px;
+}
+.enlace:hover{
+    background-color: grey;
+}
+/*Prompts*/
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body{
+    color: white;
+    margin-left: 80px;
+    margin-top: 80px;
+    transition: margin-left 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+main{
+    padding: 20px;
+}
+
+header{
+    width: 100%;
+    height: 80px;
+    background: none;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 200;
+}
+
+.icon__menu{
+    width: 50px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(10px);
+}
+
+.icon__menu i{
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+}
+
+.menu__side{
+    width: 80px;
+    height: 100%;
+    background: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+    font-size: 18px;
+    z-index: 300;
+    overflow: hidden;
+    overflow-y: scroll;
+    border-right: 20px solid rgba(255, 255, 255, 0.308);
+    transition: all 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+/*Ocultar scroll para chrome, safari y opera*/
+.menu__side::-webkit-scrollbar{
+    display: none;
+}
+
+/*Ocultar scroll para IE, Edge y Firefox*/
+.menu__side{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+
+.name__page{
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.name__page i{
+    width: 20px;
+    margin-right: 20px;
+}
+
+.options__menu{
+    padding: 20px 30px;
+    position: absolute;
+    top: 80px;
+}
+
+.options__menu a{
+    color: #ffffffb2;
+    cursor: default;
+    display: block;
+    position: relative;
+    transition: color 300ms;
+}
+
+.options__menu a:hover{
+    color: white;
+}
+
+.options__menu .option{
+    padding: 20px 0px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.options__menu .option i{
+    width: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.options__menu .option h4{
+    font-weight: 300;
+    cursor: pointer;
+}
+
+a.selected{
+    color: #fff;
+}
+
+.selected:before{
+    content: '';
+    width: 3px;
+    height: 80%;
+    background: white;
+    position: absolute;
+    top: 10%;
+    left: -30px;
+}
+
+/*Clases para usar en JavaScript*/
+
+.body_move{
+    margin-left: 250px;
+}
+
+.menu__side_move{
+    width: 250px;
+}
+
+
+@media screen and (max-width: 760px){
+    .body_move{
+        margin-left: 0px;
+    }
+
+    .menu__side_move{
+        width: 80px;
+        left: -80px;
+    }
+}
+/*Columnas*/
+.blueviolet{
+  color: white;
+  font-size: 50px;
+  background-color: transparent;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 200px;
+  margin-right: 200px;
+  padding: 20px;
+  text-align: center;
+}
+.columnas{
+  background-color: none;
+  color: white;
+  padding: 20px;
+  width: 50%;
+  margin: 50px 30px 30px 50px;
+  text-align: center;
+  font-size: 20px;
+}
+.padre{
+  display: flex;
+  margin-bottom: 2%;
+  
+}
+.intro{
+    text-align: center;
+    font-size: 20px;
+    margin-left: 400px;
+    margin-right: 400px;
+}
+.prompts{
+    margin-top: 30px;
+    width: 100%;
+    height: auto;
+}
+/*Registro*/
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+  
+  
+  
+.form-register {
+    
+    background: #24303c;
+    padding: 30px;
+    margin: auto;
+    margin-top: auto;
+    border-radius: 4px;
+    font-family: 'calibri';
+    color: white;
+    box-shadow: 7px 13px 37px #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+.form-register h4 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+.controls {
+    width: 100%;
+    background: #24303c;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid #1f53c5;
+    font-family: 'calibri';
+    font-size: 18px;
+    color: white;
+  }
+  
+.form-register p {
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 25px
+  }
+  
+.form-register a {
+    color: white;
+    text-decoration: none;
+  }
+  
+.form-register a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+  
+.form-register .botons {
+    width: 100%;
+    background: #1f53c5;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+}
+
+
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+    text-align: left;
+    border-radius: 5px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Ajusta la posición según sea necesario */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%; /* Apunta al campo */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltip-text,
+.tooltip input:focus + .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/*BARRA DE BUSQUEDA*/
+.prompt-simulator {
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 15px;
+    background: #24303c;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaciado entre los elementos */
+}
+
+.selector {
+    display: flex;
+    flex-direction: row; /* Los elementos estarán en fila */
+    align-items: center; /* Alinea verticalmente */
+    gap: 15px; /* Espacio entre el selector y el botón */
+    width: 100%;
+}
+
+.selector label {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.selector select {
+    font-size: 20px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    flex: 1; /* Hace que el selector ocupe todo el espacio disponible */
+    max-width: 500px; /* Establece un límite para el tamaño del select */
+}
+
+.selector button {
+    padding: 8px 15px;
+    font-size: 20px;
+    color: #fff;
+    background-color: #524f4f;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: flex-end; /* Hace que el botón se alinee a la derecha */
+}
+
+.selector button:hover {
+    background-color: #0056b3;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: none;
+    background: #ffffff;
+    color: #000000;
+}
+
+.response {
+    font-size: 25px;
+    padding: 10px;
+    background: #ffffff;
+    border-radius: 5px;
+    min-height: 50px;
+    white-space: pre-wrap;
+    font-family: 'Courier New', Courier, monospace;
+    border: 1px solid #000000;
+    color: #000000;
+    
+    /* Nueva propiedad para habilitar scroll */
+    max-height: 850px; /* Altura máxima para la caja */
+    overflow-y: auto;  /* Habilita el scroll vertical */
+}
