@@ -474,8 +474,8 @@ a.selected{
 /*BARRA DE BUSQUEDA*/
 .prompt-simulator {
     margin-top: 50px;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 350px;
+    margin-right: 350px;
     padding: 15px;
     background: #24303c;
     border-radius: 8px;
@@ -547,6 +547,6 @@ textarea {
     color: #000000;
     
     /* Nueva propiedad para habilitar scroll */
-    max-height: 850px; /* Altura máxima para la caja */
+    max-height: 700px; /* Altura máxima para la caja */
     overflow-y: auto;  /* Habilita el scroll vertical */
 }
